@@ -16,9 +16,7 @@ public class AppDaoImp implements  AppDao{
     private EntityManager entityManager;
 
     @Override
-    @Transactional
-
-    public List<User> getListUsers() {
+    public List<User> getUserList() {
         TypedQuery<User> query = entityManager.createQuery("FROM User", User.class);
         return query.getResultList();
     }

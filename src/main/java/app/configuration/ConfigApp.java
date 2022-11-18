@@ -1,6 +1,7 @@
 package app.configuration;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -33,7 +34,7 @@ import java.util.logging.Logger;
 public class ConfigApp implements WebMvcConfigurer {
     private static final Logger LOGGER = Logger.getLogger("ConfigAppLogger");
     private final ApplicationContext applicationContext;
-
+    @Autowired
     public ConfigApp(ApplicationContext applicationContext, Environment env) {
         LOGGER.log(Level.INFO, "Старт конструктора!");
         this.applicationContext = applicationContext;
