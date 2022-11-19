@@ -2,7 +2,6 @@ package app.service;
 
 import app.dao.AppDao;
 import app.models.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,4 +19,8 @@ public class AppServiceImp implements AppService{
     public List<User> getUserList() {
         return appDao.getUserList();
     }
+
+    @Transactional
+    @Override
+    public void saveUser(User user) { appDao.saveUser(user);}
 }

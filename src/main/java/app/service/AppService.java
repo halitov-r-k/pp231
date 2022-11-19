@@ -5,5 +5,7 @@ import app.models.User;
 import java.util.List;
 
 public interface AppService {
-    public List<User> getUserList();
+    List<User> getUserList();
+
+    void saveUser(User user);
 }
