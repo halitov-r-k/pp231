@@ -25,4 +25,9 @@ public class AppDaoImp implements  AppDao{
     public User getUser(Integer id) {
         return entityManager.find(User.class, id);
     }
+
+    @Override
+    public void deleteUser(Integer id) {
+        entityManager.remove(entityManager.find(User.class, id));
+    }
 }

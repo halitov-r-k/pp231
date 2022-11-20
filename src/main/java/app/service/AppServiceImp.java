@@ -27,4 +27,8 @@ public class AppServiceImp implements AppService{
     @Override
     @Transactional
     public User getUser(Integer id) { return appDao.getUser(id); }
+
+    @Override
+    @Transactional
+    public void deleteUser(Integer id) { appDao.deleteUser(id); }
 }

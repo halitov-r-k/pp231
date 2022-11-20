@@ -9,4 +9,5 @@ public interface AppService {
 
     void saveUser(User user);
     User getUser(Integer id);
+    void deleteUser(Integer id);
 }

@@ -44,4 +44,9 @@ public class AppController {
         model.addAttribute("user", user);
         return "user";
     }
+    @RequestMapping("/deleteUser/{id}")
+    public String deleteUser(@PathVariable("id") Integer id) {
+        appService.deleteUser(id);
+        return "redirect:/";
+    }
 }

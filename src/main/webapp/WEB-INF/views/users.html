@@ -10,7 +10,7 @@
     <tr>
         <th>Id</th>
         <th>Name</th>
-        <th>Operations</th>
+        <th colspan="2">Operations</th>
     </tr>
     <tr  th:each="user:${userList}">
         <td th:text="${user.getId()}"></td>
@@ -19,6 +19,12 @@
             <form th:method="get"
                   th:action="@{updateUser/{id}(id=${user.getId()})}">
             <input type="submit" value="Update"/>
+            </form>
+        </td>
+        <td>
+            <form th:method="delete"
+            th:action="@{deleteUser/{id}(id=${user.getId()})}">
+            <input type="submit" value="Delete"/>
             </form>
         </td>
     </tr>
