@@ -18,7 +18,11 @@ public class AppDaoImp implements  AppDao{
 
     @Override
     public void saveUser(User user) {
-        entityManager.persist(user);
+        entityManager.merge(user);
+    }
 
+    @Override
+    public User getUser(Integer id) {
+        return entityManager.find(User.class, id);
     }
 }

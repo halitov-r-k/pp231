@@ -8,4 +8,5 @@ public interface AppService {
     List<User> getUserList();
 
     void saveUser(User user);
+    User getUser(Integer id);
 }

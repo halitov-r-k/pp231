@@ -10,10 +10,17 @@
     <tr>
         <th>Id</th>
         <th>Name</th>
+        <th>Operations</th>
     </tr>
     <tr  th:each="user:${userList}">
         <td th:text="${user.getId()}"></td>
         <td th:text="${user.getName()}"></td>
+        <td>
+            <form th:method="get"
+                  th:action="@{updateUser/{id}(id=${user.getId()})}">
+            <input type="submit" value="Update"/>
+            </form>
+        </td>
     </tr>
 </table>
 <br>
