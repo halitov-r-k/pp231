@@ -71,10 +71,10 @@ public class ConfigApp implements WebMvcConfigurer {
     public DataSource dataSource() {
         LOGGER.log(Level.INFO, "Чтение настроек базы данных");
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(env.getProperty("driver"));
-        dataSource.setUrl(env.getProperty("url"));
-        dataSource.setUsername(env.getProperty("username"));
-        dataSource.setPassword(env.getProperty("password"));
+        dataSource.setDriverClassName(env.getProperty("db.driver"));
+        dataSource.setUrl(env.getProperty("db.url"));
+        dataSource.setUsername(env.getProperty("db.username"));
+        dataSource.setPassword(env.getProperty("db.password"));
         return dataSource;
 
 
@@ -83,9 +83,9 @@ public class ConfigApp implements WebMvcConfigurer {
     Properties properties() {
         LOGGER.log(Level.INFO, "Cоздание Bean  с дополнительными настройками");
         Properties properties = new Properties();
-        properties.setProperty("hibernate.hnm2ddl.auto", env.getProperty("hbm2ddl.auto"));
-        properties.setProperty("hibernate.dialect", env.getProperty("dialect"));
-        properties.setProperty("hibernate.show_sql", env.getProperty("show_sql"));
+        properties.setProperty("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
+        properties.setProperty("hibernate.dialect", env.getProperty("hibernate.dialect"));
+        properties.setProperty("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
         return properties;
     }
 

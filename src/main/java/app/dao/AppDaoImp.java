@@ -15,19 +15,19 @@ public class AppDaoImp implements  AppDao{
         TypedQuery<User> query = entityManager.createQuery("FROM User", User.class);
         return query.getResultList();
     }
-
     @Override
-    public void saveUser(User user) {
-        entityManager.merge(user);
-    }
-
+    public void saveUser(User user) { entityManager.persist(user); }
     @Override
     public User getUser(Integer id) {
         return entityManager.find(User.class, id);
     }
 
     @Override
-    public void deleteUser(Integer id) {
-        entityManager.remove(entityManager.find(User.class, id));
+    public void updateUser(User userNew) {
+        User user = getUser(userNew.getId());
+        user.setName(userNew.getName());
+        entityManager.persist(user);
     }
+    @Override
+    public void deleteUser(Integer id) { entityManager.remove(entityManager.find(User.class, id)); }
 }

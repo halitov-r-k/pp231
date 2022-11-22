@@ -15,7 +15,6 @@ public class AppServiceImp implements AppService{
     }
 
     @Override
-    @Transactional
     public List<User> getUserList() {
         return appDao.getUserList();
     }
@@ -25,8 +24,11 @@ public class AppServiceImp implements AppService{
     public void saveUser(User user) { appDao.saveUser(user); }
 
     @Override
-    @Transactional
     public User getUser(Integer id) { return appDao.getUser(id); }
+
+    @Override
+    @Transactional
+    public void updateUser(User user) {appDao.updateUser(user); }
 
     @Override
     @Transactional

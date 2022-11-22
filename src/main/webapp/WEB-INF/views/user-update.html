@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User update</title>
+</head>
+<body>
+<h1>User update</h1>
+    <form th:method="patch" th:action="@{/updateUser}" th:object="${user}">
+        <label for="name">Enter name: </label>
+        <input type="text" th:field="*{name}" id="name" th:value="${user.name}"/>
+    <br/>
+    <input type="submit" value="Save"/>
+    </form>
+</body>
+</html>
